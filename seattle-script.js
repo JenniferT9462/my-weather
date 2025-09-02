@@ -17,7 +17,7 @@ var seattleWeather = {};
 onEvent("show-seattle", "click", function () {
   fetchSeattleWeather();
   // Display weather data
-  updateWeatherCard(seattleWeather);
+  // updateWeatherCard(seattleWeather);
   // setText("temp", seattleWeather.current_weather.temperature);
   // setText("wind", seattleWeather.current_weather.windspeed);
   // setText("code", seattleWeather.current_weather.weathercode);
@@ -38,7 +38,7 @@ function fetchSeattleWeather() {
     .then(function (result) {
       console.log(result);
       seattleWeather = result;
-      updateWeatherCard(seattleWeather);
+      updateWeatherCard(seattleWeather, "Seattle");
       console.log(seattleWeather);
       console.log(seattleWeather.current_weather.temperature);
     })
@@ -46,7 +46,8 @@ function fetchSeattleWeather() {
 }
 
 
-function updateWeatherCard(weather) {
+function updateWeatherCard(weather, cityName) {
+  setText("city-name", cityName + " Weather");
   setText("temp", weather.current_weather.temperature);
   setText("wind", weather.current_weather.windspeed);
   setText("code", weather.current_weather.weathercode);

@@ -14,11 +14,10 @@ console.log("Hello from atlanta-script.js");
 
 var atlantaWeather = {};
 
-
 onEvent("show-atlanta", "click", function () {
   fetchAtlantaWeather();
   // Display weather data
-  updateWeatherCard(atlantaWeather);
+  // updateWeatherCard(atlantaWeather);
   // setText("temp", atlantaWeather.current_weather.temperature);
   // setText("wind", atlantaWeather.current_weather.windspeed);
   // setText("code", atlantaWeather.current_weather.weathercode);
@@ -39,17 +38,16 @@ function fetchAtlantaWeather() {
     .then(function (result) {
       console.log(result);
       atlantaWeather = result;
-      updateWeatherCard(atlantaWeather);
+      updateWeatherCard(atlantaWeather, "Atlanta");
       console.log(atlantaWeather);
       console.log(atlantaWeather.current_weather.temperature);
     })
     .catch((error) => console.error(error));
 }
 
-
-function updateWeatherCard(weather) {
-        setText("temp", weather.current_weather.temperature);
-        setText("wind", weather.current_weather.windspeed);
-        setText("code", weather.current_weather.weathercode);
-    }
-
+function updateWeatherCard(weather, cityName) {
+  setText("city-name", cityName +  " Weather");
+  setText("temp", weather.current_weather.temperature);
+  setText("wind", weather.current_weather.windspeed);
+  setText("code", weather.current_weather.weathercode);
+}

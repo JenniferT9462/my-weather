@@ -17,7 +17,7 @@ var parisWeather = {};
 onEvent("show-paris", "click", function () {
   fetchParisWeather();
   // Display weather data
-  updateWeatherCard(parisWeather);
+  // updateWeatherCard(parisWeather);
   // setText("temp", parisWeather.current_weather.temperature);
   // setText("wind", parisWeather.current_weather.windspeed);
   // setText("code", parisWeather.current_weather.weathercode);
@@ -38,7 +38,7 @@ function fetchParisWeather() {
     .then(function (result) {
       console.log(result);
       parisWeather = result;
-      updateWeatherCard(parisWeather);
+      updateWeatherCard(parisWeather, "Paris");
       console.log(parisWeather);
       console.log(parisWeather.current_weather.temperature);
     })
@@ -46,7 +46,9 @@ function fetchParisWeather() {
 }
 
 
-function updateWeatherCard(weather) {
+function updateWeatherCard(weather, cityName) {
+  
+  setText("city-name", cityName + " Weather");
   setText("temp", weather.current_weather.temperature);
   setText("wind", weather.current_weather.windspeed);
   setText("code", weather.current_weather.weathercode);

@@ -20,7 +20,7 @@ var newOrleansWeather = {};
 onEvent("show-nola", "click", function () {
   fetchNewOrleansWeather();
   // Display weather data
-  updateWeatherCard(newOrleansWeather);
+    // updateWeatherCard(newOrleansWeather);
   // setText("temp", newOrleansWeather.current_weather.temperature);
   // setText("wind", newOrleansWeather.current_weather.windspeed);
   // setText("code", newOrleansWeather.current_weather.weathercode);
@@ -41,7 +41,7 @@ function fetchNewOrleansWeather() {
     .then(function (result) {
       console.log(result);
       newOrleansWeather = result;
-      updateWeatherCard(newOrleansWeather);
+      updateWeatherCard(newOrleansWeather, "New Orleans");
       console.log(newOrleansWeather);
       console.log(newOrleansWeather.current_weather.temperature);
       console.log(newOrleansWeather.current_weather.weathercode);
@@ -50,9 +50,11 @@ function fetchNewOrleansWeather() {
     .catch((error) => console.error(error));
 }
 
-
-function updateWeatherCard(weather) {
+function updateWeatherCard(weather, cityName) {
+  setText("city-name", cityName + " Weather");
   setText("temp", weather.current_weather.temperature);
   setText("wind", weather.current_weather.windspeed);
   setText("code", weather.current_weather.weathercode);
+
+  console.info("Weather card updated ✅");
 }
