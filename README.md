@@ -90,4 +90,3 @@ Open `test-error.js`. This file shows what happens when an API call fails.
 
 You can enable this functionality by uncommenting the `script` tag for `test-error.js` and the `button` tag for `show-error` in your `index.html` file.
 
-Now that you've built the app and understand how it works, what's a new feature you might want to add?
