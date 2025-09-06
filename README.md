@@ -1,4 +1,3 @@
-To help you create a guide for your weather app, here is a `README.md` file that explains the project's structure and provides a step-by-step guide for students to build it. It focuses on how the different files work together and what each piece of code does.
 
 # 🌦️ My Weather App
 
